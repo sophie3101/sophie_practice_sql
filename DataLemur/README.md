@@ -25,3 +25,17 @@
 | 19  | [Patient Support Analysis (Part 1)](https://datalemur.com/questions/frequent-callers)      | [Solution](Solutions_Easy/19_patient_support_analysis_part1.sql) |
 
 ## Medium Level
+
+| ID  | Question                                                                                      | Solution                                                     |
+| :-: | :-------------------------------------------------------------------------------------------- | :----------------------------------------------------------- |
+| 01  | [User's Third Transaction](https://datalemur.com/questions/sql-third-transaction)             | [Solution](Solutions_Medium/01_user_third_transation.sql)    |
+| 02  | [Second Highest Salary](https://datalemur.com/questions/sql-second-highest-salary)            | [Solution](Solutions_Medium//02_second_highest_salary.sql)   |
+| 03  | [Sending vs. Opening Snaps](https://datalemur.com/questions/time-spent-snaps)                 | [Solution](Solutions_Medium/03_sending_vs_opening_snaps.sql) |
+| 04  | [Tweets' Rolling Averages](https://datalemur.com/questions/rolling-average-tweets)            | [Solution](Solutions_Medium/04_tweet_rolling_average.sql)    |
+| 05  | [Highest-Grossing Items](https://datalemur.com/questions/sql-highest-grossing)                | [Solution](Solutions_Medium/05_highest_grossing_items.sql)   |
+| 06  | [Top Three Salaries](https://datalemur.com/questions/sql-top-three-salaries)                  | [Solution](Solutions_Medium/06_top_three_salaries.sql)       |
+| 07  | [Signup Activation Rate](https://datalemur.com/questions/signup-confirmation-rate)            | [Solution](Solutions_Medium/07_signup_activation_rate.sql)   |
+| 08  | [Supercloud Customer](https://datalemur.com/questions/supercloud-customer)                    | [Solution](Solutions_Medium/08_supercloud_customer.sql)      |
+| 09  | [Odd and Even Measurements](https://datalemur.com/questions/odd-even-measurements)            | [Solution](Solutions_Medium/09_odd_n_even_measurements.sql)  |
+| 10  | [Swapped Food Delivery](https://datalemur.com/questions/sql-swapped-food-delivery)            | [Solution](Solutions_Medium/10_swapped_food_delivery.sql)    |
+| 11  | [FAANG Stock Min-Max (Part 1)](https://datalemur.com/questions/sql-bloomberg-stock-min-max-1) | [Solution](Solutions_Medium/11_faang_stock_min_part1.sql)    |
