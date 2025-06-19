@@ -26,16 +26,32 @@
 
 ## Medium Level
 
-| ID  | Question                                                                                      | Solution                                                     |
-| :-: | :-------------------------------------------------------------------------------------------- | :----------------------------------------------------------- |
-| 01  | [User's Third Transaction](https://datalemur.com/questions/sql-third-transaction)             | [Solution](Solutions_Medium/01_user_third_transation.sql)    |
-| 02  | [Second Highest Salary](https://datalemur.com/questions/sql-second-highest-salary)            | [Solution](Solutions_Medium//02_second_highest_salary.sql)   |
-| 03  | [Sending vs. Opening Snaps](https://datalemur.com/questions/time-spent-snaps)                 | [Solution](Solutions_Medium/03_sending_vs_opening_snaps.sql) |
-| 04  | [Tweets' Rolling Averages](https://datalemur.com/questions/rolling-average-tweets)            | [Solution](Solutions_Medium/04_tweet_rolling_average.sql)    |
-| 05  | [Highest-Grossing Items](https://datalemur.com/questions/sql-highest-grossing)                | [Solution](Solutions_Medium/05_highest_grossing_items.sql)   |
-| 06  | [Top Three Salaries](https://datalemur.com/questions/sql-top-three-salaries)                  | [Solution](Solutions_Medium/06_top_three_salaries.sql)       |
-| 07  | [Signup Activation Rate](https://datalemur.com/questions/signup-confirmation-rate)            | [Solution](Solutions_Medium/07_signup_activation_rate.sql)   |
-| 08  | [Supercloud Customer](https://datalemur.com/questions/supercloud-customer)                    | [Solution](Solutions_Medium/08_supercloud_customer.sql)      |
-| 09  | [Odd and Even Measurements](https://datalemur.com/questions/odd-even-measurements)            | [Solution](Solutions_Medium/09_odd_n_even_measurements.sql)  |
-| 10  | [Swapped Food Delivery](https://datalemur.com/questions/sql-swapped-food-delivery)            | [Solution](Solutions_Medium/10_swapped_food_delivery.sql)    |
-| 11  | [FAANG Stock Min-Max (Part 1)](https://datalemur.com/questions/sql-bloomberg-stock-min-max-1) | [Solution](Solutions_Medium/11_faang_stock_min_part1.sql)    |
+| ID  | Question                                                                                            | Solution                                                           |
+| :-: | :-------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------- |
+| 01  | [User's Third Transaction](https://datalemur.com/questions/sql-third-transaction)                   | [Solution](Solutions_Medium/01_user_third_transation.sql)          |
+| 02  | [Second Highest Salary](https://datalemur.com/questions/sql-second-highest-salary)                  | [Solution](Solutions_Medium//02_second_highest_salary.sql)         |
+| 03  | [Sending vs. Opening Snaps](https://datalemur.com/questions/time-spent-snaps)                       | [Solution](Solutions_Medium/03_sending_vs_opening_snaps.sql)       |
+| 04  | [Tweets' Rolling Averages](https://datalemur.com/questions/rolling-average-tweets)                  | [Solution](Solutions_Medium/04_tweet_rolling_average.sql)          |
+| 05  | [Highest-Grossing Items](https://datalemur.com/questions/sql-highest-grossing)                      | [Solution](Solutions_Medium/05_highest_grossing_items.sql)         |
+| 06  | [Top Three Salaries](https://datalemur.com/questions/sql-top-three-salaries)                        | [Solution](Solutions_Medium/06_top_three_salaries.sql)             |
+| 07  | [Signup Activation Rate](https://datalemur.com/questions/signup-confirmation-rate)                  | [Solution](Solutions_Medium/07_signup_activation_rate.sql)         |
+| 08  | [Supercloud Customer](https://datalemur.com/questions/supercloud-customer)                          | [Solution](Solutions_Medium/08_supercloud_customer.sql)            |
+| 09  | [Odd and Even Measurements](https://datalemur.com/questions/odd-even-measurements)                  | [Solution](Solutions_Medium/09_odd_n_even_measurements.sql)        |
+| 10  | [Swapped Food Delivery](https://datalemur.com/questions/sql-swapped-food-delivery)                  | [Solution](Solutions_Medium/10_swapped_food_delivery.sql)          |
+| 11  | [FAANG Stock Min-Max (Part 1)](https://datalemur.com/questions/sql-bloomberg-stock-min-max-1)       | [Solution](Solutions_Medium/11_faang_stock_min_part1.sql)          |
+| 12  | [User Shopping Sprees](https://datalemur.com/questions/amazon-shopping-spree)                       | [Solution](Solutions_Medium/12_user_shopping_sprees.sql)           |
+| 13  | [Histogram of Users and Purchases](https://datalemur.com/questions/histogram-users-purchases)       | [Solution](Solutions_Medium/13_histogram_of_users_n_purchases.sql) |
+| 14  | [Compressed Mode](https://datalemur.com/questions/alibaba-compressed-mode)                          | [Solution](Solutions_Medium/14_compressed_mode.sql)                |
+| 15  | [Card Launch Success](https://datalemur.com/questions/card-launch-success)                          | [Solution](Solutions_Medium/15_card_launch_success.sql)            |
+| 16  | [International Call Percentage](https://datalemur.com/questions/international-call-percentage)      | [Solution](Solutions_Medium/16_international_call_percentage.sql)  |
+| 17  | [Patient Support Analysis (Part 2)](https://datalemur.com/questions/uncategorized-calls-percentage) | [Solution](Solutions_Medium/17_patient_suppor_analysis_part2.sql)  |
+
+## Hard Level
+
+| ID  | Question                                                                                 | Solution                                                         |
+| :-: | :--------------------------------------------------------------------------------------- | :--------------------------------------------------------------- |
+| 01  | [Active User Retention](https://datalemur.com/questions/user-retention)                  | [Solution](Solutions_Hard/01_active_user_retention.sql)          |
+| 02  | [Y-on-Y Growth Rate](https://datalemur.com/questions/yoy-growth-rate)                    | [Solution](Solutions_Hard/02_y0nY_growth_rate.sql)               |
+| 03  | [Median Google Search Frequency](https://datalemur.com/questions/median-search-freq)     | [Solution](Solutions_Hard/03_Median_google_search_frequency.sql) |
+| 04  | [Maximize Prime Item Inventory](https://datalemur.com/questions/prime-warehouse-storage) | [Solution](Solutions_Hard)                                       |
+| 05  | [Advertiser Status](https://datalemur.com/questions/updated-status)                      | [Solution](Solutions_Hard/05_advertiser_status.sql)              |
