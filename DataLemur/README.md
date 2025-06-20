@@ -48,10 +48,14 @@
 
 ## Hard Level
 
-| ID  | Question                                                                                 | Solution                                                         |
-| :-: | :--------------------------------------------------------------------------------------- | :--------------------------------------------------------------- |
-| 01  | [Active User Retention](https://datalemur.com/questions/user-retention)                  | [Solution](Solutions_Hard/01_active_user_retention.sql)          |
-| 02  | [Y-on-Y Growth Rate](https://datalemur.com/questions/yoy-growth-rate)                    | [Solution](Solutions_Hard/02_y0nY_growth_rate.sql)               |
-| 03  | [Median Google Search Frequency](https://datalemur.com/questions/median-search-freq)     | [Solution](Solutions_Hard/03_Median_google_search_frequency.sql) |
-| 04  | [Maximize Prime Item Inventory](https://datalemur.com/questions/prime-warehouse-storage) | [Solution](Solutions_Hard)                                       |
-| 05  | [Advertiser Status](https://datalemur.com/questions/updated-status)                      | [Solution](Solutions_Hard/05_advertiser_status.sql)              |
+| ID  | Question                                                                                                  | Solution                                                         |
+| :-: | :-------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------- |
+| 01  | [Active User Retention](https://datalemur.com/questions/user-retention)                                   | [Solution](Solutions_Hard/01_active_user_retention.sql)          |
+| 02  | [Y-on-Y Growth Rate](https://datalemur.com/questions/yoy-growth-rate)                                     | [Solution](Solutions_Hard/02_y0nY_growth_rate.sql)               |
+| 03  | [Median Google Search Frequency](https://datalemur.com/questions/median-search-freq)                      | [Solution](Solutions_Hard/03_Median_google_search_frequency.sql) |
+| 04  | [Maximize Prime Item Inventory](https://datalemur.com/questions/prime-warehouse-storage)                  | [Solution](Solutions_Hard)                                       |
+| 05  | [Advertiser Status](https://datalemur.com/questions/updated-status)                                       | [Solution](Solutions_Hard/05_advertiser_status.sql)              |
+| 06  | [3-Topping Pizzas](https://datalemur.com/questions/pizzas-topping-cost)                                   | [Solution](Solutions_Hard/06_3_topping_pizzas.sql)               |
+| 07  | [Department vs. Company Salary](https://datalemur.com/questions/sql-department-company-salary-comparison) | [Solution](Solutions_Hard/07_department_vs_company_salary.sql)   |
+| 08  | [Repeated Payments](https://datalemur.com/questions/repeated-payments)                                    | [Solution](Solutions_Hard/08_repeated_payments.sql)              |
+| 09  | [Server Utilization Time](https://datalemur.com/questions/total-utilization-time)                         | [Solution](Solutions_Hard/09_server_utilization_time.sql)        |
