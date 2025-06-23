@@ -1,0 +1,15 @@
+DROP TABLE IF EXISTS EmployeePayRecords;
+
+
+CREATE TEMP TABLE EmployeePayRecords
+(
+EmployeeID  INTEGER PRIMARY KEY,
+FiscalYear  INTEGER CHECK(FIscalYear >=1900 AND FiscalYear<=2100),
+StartDate   DATE NOT NULL CHECK(
+    EXTRACT(DAY FROM StartDate)=1 AND EXTRACT(MONTH FROM StartDate) BETWEEN 1 AND 12
+),
+EndDate     DATE NOT NULL CHECK(
+  EXTRACT(MONTH FROM StartDate) BETWEEN 1 AND 12
+),
+PayRate     MONEY NOT NULL
+);
