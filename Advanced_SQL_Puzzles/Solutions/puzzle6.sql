@@ -15,6 +15,7 @@ INSERT INTO WorkflowSteps (Workflow, StepNumber, CompletionDate) VALUES
 ('Bravo',1,'6/25/2018'),('Bravo',2,NULL),('Bravo',3,'6/27/2018'),
 ('Charlie',1,NULL),('Charlie',2,'7/1/2018');
 
+--Solution
 SELECT workflow
 FROM WorkflowSteps
 GROUP BY workflow

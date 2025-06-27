@@ -26,7 +26,7 @@ INSERT INTO Requirements (Requirement) VALUES
 ('Geologist'),('Astrogator'),('Technician');
 
 
-
+--Solution
 SELECT distinct CandidateID
 FROM Candidates 
 WHERE Occupation IN (SELECT Requirement FROM Requirements);

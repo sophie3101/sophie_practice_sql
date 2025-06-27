@@ -1,3 +1,5 @@
+-- For every customer that had a delivery to California, provide a result set of the customer orders that
+-- were delivered to Texas.
 DROP TABLE IF EXISTS Orders;
 CREATE TEMP TABLE Orders
 (
@@ -12,6 +14,7 @@ INSERT INTO Orders (CustomerID, OrderID, DeliveryState, Amount) VALUES
 (1001,4,'TX',860),(2002,5,'WA',320),(3003,6,'CA',650),
 (3003,7,'CA',830),(4004,8,'TX',120);
 
+--Solution
 SELECT *
 FROM Orders
 WHERE deliverystate='TX' AND customerid IN (SELECT customerid FROM Orders WHERE deliverystate='CA')
