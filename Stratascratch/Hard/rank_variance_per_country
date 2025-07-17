@@ -1,0 +1,68 @@
+WITH cte AS (
+select  u.country, 
+    EXTRACT(MONTH FROM c.created_at) AS month, 
+    SUM(c.number_of_comments) as total_comments
+from fb_comments_count c
+JOIN fb_active_users u oN u.user_id = c.user_id AND TO_CHAR(created_at, 'YYYY-MM') BETWEEN '2019-12' AND '2020-01'
+GROUP BY  u.country, EXTRACT(MONTH FROM c.created_at))
+, rank_cte AS 
+(SELECT *,
+    DENSE_RANK()OVER(PARTITION BY month ORDER by total_comments DESC) as rnk
+FROM cte
+ORDER BY month DESC),
+compare_rank_cte AS (
+SELECT *,
+ LEAD(rnk) OVER(PARTITION BY country ORDER BY month DESC) as next_rnk
+FROM rank_cte
+)
+
+SELECT country
+FROM compare_rank_cte
+WHERE rnk > next_rnk
+
+
+--other solution
+WITH monthly_comments AS
+  (SELECT u.country,
+          date_trunc('month', c.created_at)::date AS month_start,
+          SUM(c.number_of_comments) AS total_comments
+   FROM fb_comments_count AS c
+   JOIN fb_active_users AS u ON c.user_id = u.user_id
+   WHERE c.created_at >= '2019-12-01'
+     AND c.created_at < '2020-02-01'
+   GROUP BY u.country,
+            date_trunc('month', c.created_at)::date),
+     december AS
+  (SELECT country,
+          total_comments
+   FROM monthly_comments
+   WHERE month_start = '2019-12-01'),
+     january AS
+  (SELECT country,
+          total_comments
+   FROM monthly_comments
+   WHERE month_start = '2020-01-01'),
+     december_rank AS
+  (SELECT country,
+          total_comments,
+          DENSE_RANK() OVER (
+                             ORDER BY total_comments DESC) AS dec_rank
+   FROM december),
+     january_rank AS
+  (SELECT country,
+          total_comments,
+          DENSE_RANK() OVER (
+                             ORDER BY total_comments DESC) AS jan_rank
+   FROM january),
+     rank_compare AS
+  (SELECT d.country,
+          d.dec_rank,
+          j.jan_rank,
+          d.total_comments AS dec_comments,
+          j.total_comments AS jan_comments
+   FROM december_rank d
+   JOIN january_rank j USING (country))
+SELECT country
+FROM rank_compare
+WHERE dec_rank > jan_rank
+ORDER BY dec_rank;

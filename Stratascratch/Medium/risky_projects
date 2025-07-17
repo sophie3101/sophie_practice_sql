@@ -1,0 +1,9 @@
+
+SELECT  projects.title, projects.budget, 
+CEILING((projects.end_date::date - projects.start_date::date) * (SUM(e.salary) / 365)) 
+FROM linkedin_employees e 
+JOIN linkedin_emp_projects p ON p.emp_id = e.id
+JOIN linkedin_projects projects ON projects.id = p.project_id
+GROUP BY projects.title, projects.budget, projects.start_date, projects.end_date
+HAVING CEILING((projects.end_date::date - projects.start_date::date) * (SUM(e.salary) / 365))  > projects.budget
+ORDER BY projects.title

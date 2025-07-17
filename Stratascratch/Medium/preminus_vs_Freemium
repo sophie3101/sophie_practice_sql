@@ -1,0 +1,13 @@
+WITH cte AS (select f.date, u.user_id, u.acc_id, acc.paying_customer, f.downloads
+from ms_user_dimension u
+JOIN ms_acc_dimension acc ON u.acc_id = acc.acc_id
+JOIN ms_download_facts f ON u.user_id = f.user_id
+ORDER BY date
+)
+
+SELECT date, 
+SUM(downloads) FILTER(WHERE paying_customer='no') as non_paying,
+SUM(downloads) FILTER(WHERE paying_customer='yes') as paying
+FROM cte
+GROUP BY date
+HAVING SUM(downloads) FILTER(WHERE paying_customer='no') > SUM(downloads) FILTER(WHERE paying_customer='yes')
