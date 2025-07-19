@@ -15,8 +15,12 @@ EOF
 # create table schema 
 psql -U $username -h $hostname -d $dbname < sql_scripts/schema/company_schema.sql
 
-# # dump data
-# psql -U $username -h $hostname -d $dbname  < sql_scripts/load_company_data.sql
+# dump data
+psql -U $username -h $hostname -d $dbname  < sql_scripts/load_company_data.sql
 
-# # remove statging data
+# remove statging data
 # psql -U $username -h $hostname -d $dbname  -c 'DROP schema  staging CASCADE;'
+psql -U $username -h $hostname -d $dbname <<EOF
+DROP schema  IF EXISTS test  CASCADE;
+DROP schema  IF EXISTS staging  CASCADE;
+EOF
