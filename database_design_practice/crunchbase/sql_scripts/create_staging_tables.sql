@@ -1,6 +1,6 @@
--- CREATE SCHEMA IF NOT EXISTS dev;
--- SET search_path TO dev;
-DROP TABLE IF EXISTS staging_companies;
+CREATE SCHEMA IF NOT EXISTS staging;
+SET search_path TO staging;
+DROP TABLE IF EXISTS staging_companies, staging_acquisitions, staging_funding_rounds,staging_investments;
 
 SELECT 'CREATING TABLE staging_companies' AS INFO; 
 
@@ -24,12 +24,11 @@ CREATE TABLE staging_companies (
     last_milestone_at TEXT
 );
 
-
 CREATE TABLE staging_acquisitions (
     company_permalink TEXT,
     company_name TEXT,
     company_category_code TEXT,
-    company_country_code CHAR(3),
+    company_country_code CHAR(10),
     company_state_code VARCHAR(10),
     company_region TEXT,
     company_city TEXT,
@@ -37,7 +36,7 @@ CREATE TABLE staging_acquisitions (
     acquirer_permalink TEXT,
     acquirer_name TEXT,
     acquirer_category_code TEXT,
-    acquirer_country_code CHAR(3),
+    acquirer_country_code CHAR(10),
     acquirer_state_code VARCHAR(10),
     acquirer_region TEXT,
     acquirer_city TEXT,
@@ -48,14 +47,14 @@ CREATE TABLE staging_acquisitions (
     acquired_year INT,
     
     price_amount NUMERIC,
-    price_currency_code CHAR(3)
+    price_currency_code CHAR(10)
 );
 
 CREATE TABLE staging_funding_rounds (
     company_permalink TEXT,
     company_name TEXT,
     company_category_code TEXT,
-    company_country_code CHAR(3),
+    company_country_code CHAR(10),
     company_state_code VARCHAR(10),
     company_region TEXT,
     company_city TEXT,
@@ -70,8 +69,10 @@ CREATE TABLE staging_funding_rounds (
 );
 
 CREATE TABLE staging_investments (
+    company_permalink TEXT,
+    company_name TEXT,
     company_category_code TEXT,
-    company_country_code CHAR(3),
+    company_country_code CHAR(10),
     company_state_code VARCHAR(10),
     company_region TEXT,
     company_city TEXT,
@@ -79,7 +80,7 @@ CREATE TABLE staging_investments (
     investor_permalink TEXT,
     investor_name TEXT,
     investor_category_code TEXT,
-    investor_country_code CHAR(3),
+    investor_country_code CHAR(10),
     investor_state_code VARCHAR(10),
     investor_region TEXT,
     investor_city TEXT,

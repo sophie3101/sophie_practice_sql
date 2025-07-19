@@ -1,9 +1,8 @@
 
--- SET search_path TO dev; 
-DROP TABLE IF EXISTS company, company_status,company_location, company_category, company_history;
+-- SET search_path TO public; 
+DROP TABLE IF EXISTS  funding_type, funding_rounds, acquisition_info, company_status,company_location, company_category, company;
 
 SELECT 'CREATING TABLE SCHEMA STRUCTURE' as INFO; 
-
 CREATE TABLE company_location (
     location_id SERIAL PRIMARY KEY ,
     country VARCHAR(100),
@@ -35,20 +34,34 @@ CREATE TABLE company (
     founding_date DATE  --allow NULL
 );
 
--- SELECT 'CREATING company history table' as INFO; 
--- CREATE TABLE company_history (
---     company_name VARCHAR(100) CONSTRAINT fk_company REFERENCES company(company_name),
---     event_name VARCHAR(100),
---     event_date DATE,
---     CONSTRAINT pk_history PRIMARY KEY(company_name, event_name, event_date)
--- );
+SELECT 'CREATING funding_rounds table' as INFO;
+CREATE TABLE funding_type (
+    type_id SERIAL PRIMARY KEY,
+    funding_type VARCHAR(50) UNIQUE NOT NULL
+);
 
-SELECT 'CREATING acquisition_info table' as INFO; 
-CREATE TABLE acquisition_info (
-    target_company_id NT fk_target_company_id REFERENCES company(company_id),
-    acquirer_company_id INT fk_acq_company_id REFERENCES company(company_id),
-    acquisition_date DATE NOT NULL, 
-    acquisition_amount INT ,
-    currency_code VARCHAR(3),
-    CONSTRAINT pk_acquisition(target_company_id, acquirer_company_id)
+CREATE TABLE funding_rounds (
+    id SERIAL PRIMARY KEY, 
+    company_id INT REFERENCES company(company_id),
+    funding_type_id INT REFERENCES funding_type(type_id),
+    funded_at DATE NOT NULL, 
+    funding_amount BIGINT NOT NULL
+    -- PRIMARY KEY(company_id, funding_type_id, funded_at, funding_amount)
+);
+
+SELECT 'CREATING investment table' as INFO;
+CREATE TABLE investing_rounds (
+    id SERIAL PRIMARY KEY,
+    funding_event_id INT REFERENCES funding_rounds(id),
+    invester_company_id INT REFERENCES company(company_id),
+    investment_amount BIGINT NOT NULL
 )
+-- SELECT 'CREATING acquisition_infotable' as INFO; 
+-- CREATE TABLE acquisition_info (
+--     target_company_id INT CONSTRAINT fk_target_company_id REFERENCES company(company_id),
+--     acquirer_company_id INT CONSTRAINT fk_acq_company_id REFERENCES company(company_id),
+--     acquisition_date DATE NOT NULL, 
+--     acquisition_amount BIGINT ,
+--     currency_code VARCHAR(3),
+--     CONSTRAINT pk_acquisition PRIMARY KEY(target_company_id, acquirer_company_id)
+-- );
