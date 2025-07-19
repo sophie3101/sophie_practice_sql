@@ -1,1 +1,1 @@
-This repository houses a collection of my SQL practice materials
+This repository hosts a collection of my SQL practice materials
