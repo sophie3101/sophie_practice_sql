@@ -10,3 +10,4 @@
 3. Populate table
 ```bash scripts/populate_tables.sh u249637 localhost crunchbase```
 
+bash scripts/test_schema.sh u249637 localhost crunchbase

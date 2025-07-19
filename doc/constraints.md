@@ -14,7 +14,9 @@ To create contstrain:
 1. Primary Key Constraint: this ensures all rows have a unique value and cannot be NULL, often used as an identifier of a table's row. 
 
     ```CONSTRAINT constraint_name PRIMARY KEY constraint_parameters```
+
 e.g:
+
 ```
 --inline
 CREATE TABLE employee (
@@ -51,8 +53,10 @@ ADD CONSTRAINT pk_emp_id PRIMARY KEY(employee_id);
 ```
 2. Foreign Key Constraint: this ensures that values in a column (or several columns) match values in another table's column/s. It allows you to enforce referential integrity, which means that a record in one table relates to a record in another table.\
 ```CONSTRAINT constraint_name REFERENCES constraint_parameters```
+
     - ON DELETE SET NULL: When you delete the parent record, then all child records will have the referenced column set to NULL.
-    - ON DELETE CASCADE: When you delete the parent record, then all child records will be deleted as well.
+    - ON DELETE CASCADE: Deletes child rows when parent row is deleted, When you delete the parent record, then all child records will be deleted as well.
+    - ON DELETE RESTRICT (Prevents deletion of parent row if referenced), similar to ON DELETE NO ACTION (default)
 
 e:g
 ```
