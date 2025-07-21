@@ -33,6 +33,14 @@ BEGIN
         RAISE NOTICE 'duplicate key value violates unique constraint';
     END;
 
+    -- invalid data type 
+    BEGIN 
+        INSERT INTO company (company_name, location_id, category_id, status_id, founding_date)
+            VALUES('CorpB', loc_id, cat_id, stat_id, 'not date type');
+        EXCEPTION WHEN others THEN
+            RAISE NOTICE 'wrong date format';    
+    END;
+
     -- check NULL violation
     BEGIN
         INSERT INTO funding_type(funding_type) VALUES (NULL);
@@ -43,7 +51,7 @@ BEGIN
     EXCEPTION WHEN not_null_violation THEN 
         RAISE NOTICE 'cannot be NULL values';
     END;
-    
+
     -- check_violation
     BEGIN
         INSERT INTO funding_rounds (company_id, funding_type_id, funded_at, funding_amount)

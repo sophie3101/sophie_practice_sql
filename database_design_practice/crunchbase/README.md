@@ -37,7 +37,26 @@ If you're running PostgreSQL via Docker, please update the connection commands i
 
 2. to test the schema:
 
-```bash scripts/test_schema.sh <username> <hostname> <databasename>```
+You can test the schema using one of the following methods:
+    - Using the PostgreSQL script approach:
+
+``` bash scripts/test_schema.sh <username> <hostname> <databasename> ```
+
+    - Using pgTAP
+
+```   
+psql -U "<username>" -h "<hostname>" -d "<databasename>" <<EOF
+CREATE SCHEMA IF NOT EXISTS test;
+SET search_path TO test;
+\i sql_scripts/schema/company_schema.sql;
+-- Create the pgTAP extension (only needs to be run once per database)
+CREATE EXTENSION IF NOT EXISTS pgtap;
+
+-- Run the pgTAP tests
+\i sql_scripts/pgtap.sql;
+EOF
+```
+
 
 <!-- 3. load content of input  data files to staging tables
 

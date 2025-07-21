@@ -53,4 +53,51 @@ CREATE TABLE funding_rounds (
 COMMENT ON TABLE company IS 'Stores information about companies(target companies), including their name, location, category, and status and funding history';
 COMMENT ON COLUMN company.founding_date IS 'Date the company was founded; NULL if unknown';
 
--- CREATE INDEX index_name ON table_name (column_name);
+-- CREATE INDEX TO Do
+--CREATE FUNCTIONS
+CREATE OR REPLACE FUNCTION insert_company_category(in_category_name VARCHAR)
+RETURNS INT 
+AS $$
+DECLARE 
+    cat_id INT;
+BEGIN 
+    -- Check if category exists
+    SELECT category_id INTO cat_id
+    FROM company_category 
+    WHERE category_name = in_category_name;
+
+    -- if not, do the insert
+    IF cat_id IS NULL THEN 
+        INSERT INTO company_category(category_name) 
+        VALUES (in_category_name)
+        RETURNING category_id INTO cat_id;
+    END IF;
+
+    RETURN cat_id;
+END;
+$$ LANGUAGE plpgsql;
+
+
+CREATE OR REPLACE FUNCTION insert_company_location(country_ VARCHAR, state_code_ VARCHAR)
+RETURNS INT 
+AS $$
+DECLARE 
+    location_id_ INT;
+BEGIN
+    WITH cte AS (
+        INSERT INTO company_location(country, state_code)
+        VALUES (country_, state_code_)
+        ON CONFLICT (country, state_code) DO NOTHING
+        RETURNING location_id
+    )
+    SELECT location_id INTO location_id_
+    FROM cte
+    UNION ALL
+    SELECT location_id
+    FROM company_location
+    WHERE country = country_ AND state_code = state_code_
+    LIMIT 1;
+
+    RETURN location_id_;
+END;
+$$ LANGUAGE plpgsql;
