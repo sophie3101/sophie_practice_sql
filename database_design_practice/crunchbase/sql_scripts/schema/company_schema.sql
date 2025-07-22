@@ -1,9 +1,7 @@
 
-DROP TABLE IF EXISTS  funding_type, funding_rounds,  company_status, company_location, company_category, company ;
 
-\echo ============================================
-\echo CREATING SCHEMA TABLES
-\echo ============================================
+DROP VIEW company_view;
+DROP TABLE IF EXISTS  funding_type, funding_rounds,  company_status, company_location, company_category, company ;
 
 CREATE TABLE company_location (
     location_id SERIAL PRIMARY KEY ,
@@ -47,7 +45,15 @@ CREATE TABLE funding_rounds (
     funding_amount NUMERIC NOT NULL CHECK(funding_amount > 0)
 );
 
-
+-- create view (for data visualization)
+CREATE OR REPLACE VIEW company_view AS 
+SELECT company_name, cat.category_name,  sta.status_name, loc.country, loc.state_code, c.founding_date, ft.funding_type,r.funded_at, r.funding_amount
+FROM company c 
+JOIN company_location loc ON loc.location_id = c.location_id
+JOIN company_status sta ON sta.status_id = c.status_id
+JOIN company_category cat ON cat.category_id = c.category_id
+LEFT JOIN funding_rounds r ON r.company_id=c.company_id
+LEFT JOIN funding_type ft ON ft.type_id = r.funding_type_id;
 
 --add to sys catalog. e.g
 COMMENT ON TABLE company IS 'Stores information about companies(target companies), including their name, location, category, and status and funding history';

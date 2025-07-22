@@ -7,10 +7,16 @@ This project provides a relational database design for modeling Crunchbase-style
 ## Project Structure
 ```
 ├── scripts/                # Bash scripts to execute psql commands (init, test, load)
+|
 ├── sql_scripts/           # SQL scripts for schema creation and ETL
 │   ├── schema/            # Schema definitions for staging, test, and final tables
 │   └── *.sql              # SQL queries to populate data, run tests ...
+|
 ├── raw_data/              # Input CSV files (e.g., Crunchbase datasets)
+|
+├──data_analytics
+│   └── analytics.sql.     # sql queries for analyzing the data
+|
 ├── ER_diagram.png         # Entity-Relationship diagram of the database
 └── README.md              # Project overview and usage instructions
 ```
@@ -49,11 +55,14 @@ psql -U "<username>" -h "<hostname>" -d "<databasename>" <<EOF
 CREATE SCHEMA IF NOT EXISTS test;
 SET search_path TO test;
 \i sql_scripts/schema/company_schema.sql;
+\i sql_scripts/schema/users_schema.sql;
+\i sql_scripts/grant_priviledges.sql;
 -- Create the pgTAP extension (only needs to be run once per database)
 CREATE EXTENSION IF NOT EXISTS pgtap;
 
 -- Run the pgTAP tests
-\i sql_scripts/pgtap.sql;
+\i sql_scripts/tests/pgtap.sql;
+\i sql_scripts/tests/test_user_permissions.sql;
 EOF
 ```
 
@@ -65,3 +74,8 @@ EOF
 3. create table from schema files, populate data from staging schema and drop the staging schema
 
 ```bash scripts/populate_tables.sh <username> <hostname> <databasename>```
+
+4. to dump the data from database to csv file: \
+You can change the sql query depending on which data you want to extract from crunchbase database
+
+```psql crunchbase -c "\COPY (SELECT * FROM company_view) TO 'crunchbase_dump.csv' WITH CSV HEADER;"```

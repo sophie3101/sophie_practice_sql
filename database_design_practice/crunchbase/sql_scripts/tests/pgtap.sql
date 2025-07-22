@@ -14,8 +14,6 @@
 -- Start transaction and plan the tests.
 BEGIN;
 SELECT plan(14);
-SELECT pass('pgTAP installed successfully');
-
 -- test table existence
 SELECT has_table('company', 'Table company exists');
 SELECT has_table('company_location', 'Table company_location exists');
@@ -76,3 +74,4 @@ SELECT *
 FROM finish();
 
 ROLLBACK;
+

@@ -8,14 +8,17 @@ psql -U "$username" -h "$hostname" -d "$dbname" <<EOF
 CREATE SCHEMA IF NOT EXISTS test;
 SET search_path TO test;
 \i sql_scripts/schema/company_schema.sql
-\i sql_scripts/test_schema.sql
+\i sql_scripts/tests/test_schema.sql
 EOF
+
 
 # psql -U "$username" -h "$hostname" -d "$dbname" <<EOF
 # CREATE SCHEMA IF NOT EXISTS test;
 # SET search_path TO test;
-# -- Create the "pgtap" extension, only ned to run once per database
-# CREATE EXTENSION IF NOT EXISTS pgtap;
-# \i sql_scripts/pgtap.sql;
+# \i sql_scripts/schema/company_schema.sql;
+# \i sql_scripts/schema/users_schema.sql;
+# \i sql_scripts/grant_priviledges.sql;
+# CREATE EXTENSION IF NOT EXISTS pgtap; -- Create the "pgtap" extension, only ned to run once per database
+# \i sql_scripts/tests/pgtap.sql;
+# \i sql_scripts/tests/test_user_permissions.sql;
 # EOF
-
