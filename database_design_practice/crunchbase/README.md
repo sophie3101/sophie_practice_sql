@@ -21,6 +21,10 @@ This project provides a relational database design for modeling Crunchbase-style
 └── README.md              # Project overview and usage instructions
 ```
 
+# Data Analytics and Visualization
+Breakdown of Crunchbase 2013 data is done via [analytics.sql](data_analytics/analytics.sql) with resulting visualizations created in [Tableau](https://public.tableau.com/views/crunchbase_17532207061670/Dashboard1?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link):
+
+![](data_analytics/tableau.png)
 
 ## Testing
 Tests are run via `scripts/test_schema.sh` to check:
