@@ -1,0 +1,10 @@
+version: 2
+
+models:
+  - name: dim_locations
+    columns:
+      - name: location_id 
+        tests: [unique, not_null]
+      - name: city
+        tests: [unique, not_null]
+          

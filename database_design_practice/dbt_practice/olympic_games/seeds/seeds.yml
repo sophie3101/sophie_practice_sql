@@ -1,0 +1,12 @@
+version: 2
+
+seeds:
+  - name: athlete_events
+    config:
+      schema: staging    
+    description: "raw data from Kaggle"
+
+  - name: noc_regions
+    config:
+      schema: staging 
+    description: "raw data from Kaggle"

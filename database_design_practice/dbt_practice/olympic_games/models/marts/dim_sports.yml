@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: dim_sports
+    columns:
+      - name: sport
+        tests:  
+          - not_null
+      # - name: event
+      #   tests:  
+      #     - not_null

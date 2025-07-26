@@ -1,0 +1,57 @@
+version: 2
+
+models:
+  - name: fact_athlete_events
+    columns:
+      - name: fact_id
+        tests: [unique, not_null]
+      - name: athlete_id
+        tests: 
+          - not_null 
+          - relationships:
+              to: ref('dim_athletes')
+              field: athlete_id
+      - name: team_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_teams')
+              field: team_id
+      - name: sport_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_sports')
+              field: sport_id
+
+      - name: location_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_locations')
+              field: location_id
+
+      - name: gold_num
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 0
+              inclusive: true
+
+      - name: silver_num
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 0
+              inclusive: true
+
+      - name: bronze_num
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 0
+              inclusive: true
+
+      - name: no_medal_num
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 0
+              inclusive: true
+

@@ -1,0 +1,8 @@
+version: 2
+# source :--here is data not coming from seed
+models:
+  - name: staging_athlete_events
+    columns:
+      - name: height
+  
+         
