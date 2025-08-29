@@ -8,7 +8,7 @@ select
     team,
     events.noc,
     cte.region
-from {{ref('staging_athlete_events')}} as events
+from {{ref('stg_athlete_events')}} as events
 LEFT JOIN  cte 
     ON cte.noc = events.noc
 group by team, events.noc, cte.region

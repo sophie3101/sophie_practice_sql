@@ -34,3 +34,11 @@ dbt run
 dbt test
 dbt docs generate
 dbt docs serve
+
+when to use dbt: assume u have a datawarehouse and use dbt to mange sql based transofmration
+
+dbt is for the T
+to load data, either use:
+- custom scripts: python, sql...
+- dbt seed for small files
+- open source tools like airbyte, fivetran...

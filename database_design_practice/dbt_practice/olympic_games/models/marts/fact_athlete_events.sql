@@ -15,7 +15,7 @@ select
     count(*)FILTER(WHERE events.medal='Silver') as silver_num,
     count(*)FILTER(WHERE events.medal='Bronze') as bronze_num,
     count(*)FILTER(WHERE events.medal is null) as no_medal_num
-from {{ref('staging_athlete_events')}} as events
+from {{ref('stg_athlete_events')}} as events
 LEFT JOIN {{ref('dim_athletes')}} as athletes 
     ON athletes.name = events.name
 LEFT JOIN {{ref('dim_teams')}} as teams 

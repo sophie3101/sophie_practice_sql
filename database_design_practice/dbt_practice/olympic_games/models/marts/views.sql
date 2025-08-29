@@ -14,7 +14,8 @@ select
     events.gold_num,
     events.silver_num,
     events.bronze_num, 
-    events.no_medal_num
+    events.no_medal_num,
+    events.gold_num + events.silver_num + events.bronze_num as total_medal_num
 from {{ref('fact_athlete_events')}} as events 
 JOIN {{ref('dim_teams')}} as teams 
     ON teams.team_id = events.team_id 

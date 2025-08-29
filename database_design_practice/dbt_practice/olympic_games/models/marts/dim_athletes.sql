@@ -5,5 +5,5 @@ select
     max(age)::INT as age,
     max(height)::NUMERIC as height,
     max(weight)::NUMERIC as weight
-from {{ref('staging_athlete_events')}}
+from {{ref('stg_athlete_events')}}
 group by name

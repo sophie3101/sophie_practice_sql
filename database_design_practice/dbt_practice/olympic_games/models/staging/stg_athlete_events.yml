@@ -1,0 +1,13 @@
+version: 2
+sources:
+  - name: raw_layer
+    meta:
+      external_location: ./raw_data/{name}.csv
+    description: Data from application database, brought in by an EL process.
+    tables:
+      - name: athlete_events
+        config:
+          tags: [raw_layer]
+        columns:
+          - name: name
+            tests: [not_null]

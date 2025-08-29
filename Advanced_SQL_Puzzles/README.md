@@ -1,7 +1,8 @@
 This repos contains my solution to solve challenges from
 [advancedsqlpuzzles.com](https://github.com/smpetersgithub/AdvancedSQLPuzzles/tree/main)
 
-| PUzzleID | Solution                         | Type                  |
+
+| PuzzleID | Solution                         | Type                  |
 | :------: | :------------------------------- | :-------------------- |
 |    01    | [puzzle1](Solutions/puzzle1.sql) |
 |    02    | [puzzle2](Solutions/puzzle2.sql) | recursive             |
